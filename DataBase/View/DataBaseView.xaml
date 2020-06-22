@@ -1,0 +1,36 @@
+﻿<Page x:Class="DataBase.View.DataBaseView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DataBase.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DataBaseView" DataContext="{Binding DataBaseViewModel, Source={StaticResource ViewModelLocator}}">
+
+    <Grid>
+        <Button Content="Создать заявку" Width="150" FontSize="{StaticResource TextBoxFontSize}" Height="35" Style="{StaticResource BaseButton}"  Command="{Binding ClickToCreateApplication}"/>
+
+        <StackPanel Orientation="Vertical" Width="190" Visibility="{Binding CreateProductVisiability}">
+            <TextBlock Text="1) Создания груза для транспортировки" Foreground="White" FontSize="{StaticResource MainSize}"/>
+            <TextBox Style="{StaticResource TextBoxWithHint}" Tag="Введите названия груза"/>
+            <TextBox Style="{StaticResource TextBoxWithHint}" Tag="Введите объём груза"/>
+            <ComboBox SelectedItem="{Binding SelectedItem}">
+                <ComboBoxItem>
+                    <TextBlock Text="Да"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="Нет"/>
+                </ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="{Binding NumberProductBlock}"/>
+            <Button Content="Создать груз" Style="{StaticResource BaseButton}"/>
+        </StackPanel>
+        
+        <Border>
+            <Grid>
+                <TextBlock Text="Груз"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
